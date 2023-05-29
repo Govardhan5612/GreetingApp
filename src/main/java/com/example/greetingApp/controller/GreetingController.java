@@ -1,13 +1,22 @@
 package com.example.greetingApp.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import com.example.greetingApp.dto.GreetingAppDto;
+import com.example.greetingApp.model.GreetingApp;
+import com.example.greetingApp.repository.GreetingRepository;
+import com.example.greetingApp.service.GreetingAppService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class GreetingController {
     @GetMapping("/hello")
     public String message(@RequestParam String firstName, @RequestParam String lastName) {
         return "Hello " + firstName + " " + lastName + " welcome to BridgeLabz";
+    }
+    @Autowired
+    GreetingAppService greetingService;
+    @PostMapping("/add")
+    public GreetingApp addUser(@RequestBody GreetingAppDto user) {
+        return greetingService.addUser(user);
     }
 }
