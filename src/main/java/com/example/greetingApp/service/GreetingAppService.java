@@ -39,4 +39,10 @@ public class GreetingAppService {
         }
         return null;
     }
+    public void deleteUser( int id){
+        Optional<GreetingApp> userData = greetingRepo.findById(id);
+        if (userData.isPresent()) {
+            greetingRepo.deleteById(id);
+        }
+    }
 }
