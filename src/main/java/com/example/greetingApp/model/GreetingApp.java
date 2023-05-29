@@ -14,9 +14,6 @@ public class GreetingApp {
     private int id;
     private String firstName, lastName;
 
-    public String getFirstName() {
-        return firstName;
-    }
 
     public GreetingApp() {
     }
@@ -25,6 +22,10 @@ public class GreetingApp {
         firstName = greetingAppDto.firstName;
         lastName = greetingAppDto.lastName;
 
+    }
+
+    public String getFirstName() {
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
@@ -36,6 +37,6 @@ public class GreetingApp {
     }
 
     public void setLastName(String lastName) {
-        lastName = lastName;
+        this.lastName = lastName;
     }
 }
