@@ -20,10 +20,23 @@ public class GreetingAppService {
         return greetingRepo.save(greetingApp);
 
     }
-    public Optional<GreetingApp> getUserById(int id){
+
+    public Optional<GreetingApp> getUserById(int id) {
         return greetingRepo.findById(id);
     }
-    public List<GreetingApp> getUsers(){
+
+    public List<GreetingApp> getUsers() {
         return greetingRepo.findAll();
+    }
+
+    public GreetingApp UpdateUser(int id, GreetingAppDto user) {
+        Optional<GreetingApp> userData = greetingRepo.findById(id);
+        if (userData.isPresent()) {
+
+            userData.get().setFirstName(user.firstName);
+            userData.get().setLastName(user.lastName);
+            return greetingRepo.save(userData.get());
+        }
+        return null;
     }
 }
