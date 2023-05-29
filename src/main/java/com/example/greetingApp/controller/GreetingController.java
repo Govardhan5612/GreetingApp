@@ -40,5 +40,10 @@ public class GreetingController {
         return greetingService.UpdateUser(id, user);
 
     }
+    @DeleteMapping("/delete/{id}")
+    public void deleteUser(@PathVariable int id) {
+        greetingService.deleteUser(id);
+    }
+
 }
 
