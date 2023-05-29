@@ -7,6 +7,8 @@ import com.example.greetingApp.service.GreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class GreetingController {
     @GetMapping("/hello")
@@ -19,4 +21,9 @@ public class GreetingController {
     public GreetingApp addUser(@RequestBody GreetingAppDto user) {
         return greetingService.addUser(user);
     }
+    @GetMapping("/get/{id}")
+    public Optional<GreetingApp> getUser(@PathVariable int id) {
+        return greetingService.getUserById(id);
+    }
 }
+
