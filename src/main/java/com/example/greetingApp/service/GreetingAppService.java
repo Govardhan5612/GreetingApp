@@ -33,8 +33,8 @@ public class GreetingAppService {
         Optional<GreetingApp> userData = greetingRepo.findById(id);
         if (userData.isPresent()) {
 
-            userData.get().setFirstName(user.firstName);
-            userData.get().setLastName(user.lastName);
+            userData.get().setMessage(user.message);
+
             return greetingRepo.save(userData.get());
         }
         return null;

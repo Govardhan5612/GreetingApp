@@ -12,31 +12,22 @@ public class GreetingApp {
     @Id
     @GeneratedValue()
     private int id;
-    private String firstName, lastName;
+    private String message;
 
 
     public GreetingApp() {
     }
 
     public GreetingApp(GreetingAppDto greetingAppDto) {
-        firstName = greetingAppDto.firstName;
-        lastName = greetingAppDto.lastName;
+        message=greetingAppDto.message;
 
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getMessage() {
+        return message;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
